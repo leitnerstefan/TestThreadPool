@@ -14,6 +14,7 @@ namespace TestThreadPool
         private const int MaxThreads = 20;
         private const int FilesToProcess = 37;
         private static BackgroundWorker[] threadArray = new BackgroundWorker[MaxThreads];
+        private static int Sleepintervall = 0;
 
         static void Main(string[] args)
         {
@@ -28,6 +29,8 @@ namespace TestThreadPool
 
                 if(input.ToUpper() == "Y" )
                 {
+                    Console.WriteLine("Sekunden Pause: ");
+                    Sleepintervall = Convert.ToInt32(Console.ReadLine());
                     Starting();
                 }
                 else
@@ -112,7 +115,7 @@ namespace TestThreadPool
             for(int i = 0; i < 1000; i++)
             {
                 Console.WriteLine(e.Argument + ": " + i.ToString());
-                Thread.Sleep(25);
+                Thread.Sleep(Sleepintervall);
             }
                 
 
